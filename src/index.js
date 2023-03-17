@@ -1,11 +1,10 @@
-import React from "react";
+/* eslint-disable no-unused-vars */
+import React, { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-
 import { App } from "./components/app";
-
 import "./styles.css";
 
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
 
-root.render(<App />);
+root.render(<StrictMode><App /></StrictMode>);

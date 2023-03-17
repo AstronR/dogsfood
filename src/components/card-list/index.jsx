@@ -1,12 +1,11 @@
-import { dataCard } from "../../data";
 import { Card } from "../card";
 import "./styles.css";
 
-export function CardList() {
+export function CardList({ goods, onProductLike, currentUser }) {
   return (
     <div className="cards content__cards">
-      {dataCard.map((dataItem) => (
-        <Card {...dataItem} />
+      {goods.map((dataItem, index) => (
+        <Card key={index} {...dataItem} onProductLike={onProductLike} currentUser={currentUser} />
       ))}
     </div>
   );
