@@ -21,7 +21,7 @@ export function Card({
 }) {
   const discount_price = Math.round(price - (price * discount) / 100);
 
-  const like = isLiked(likes, currentUser._id)
+  const like = isLiked(likes, currentUser?._id)
 
 
   function handleClickButtonLike() {
@@ -45,7 +45,8 @@ export function Card({
       <div className="card__sticky card__sticky_type_top-right">
         <button className={cn('card__favorite', { 'card__favorite_is-active': like })} onClick={handleClickButtonLike}>
           <LikeIcon className="card__favorite-icon" />
-          </button>
+          {/* <img src={likeIcon} alt="" className="card__favorite-icon" /> */}
+        </button>
       </div>
 
       <a href="#" className="card__link">
