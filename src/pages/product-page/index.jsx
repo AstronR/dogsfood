@@ -2,7 +2,9 @@ import { useEffect, useState } from "react";
 import { CardList } from "../../components/card-list"
 import Product from "../../components/product";
 import { Sort } from "../../components/sort"
+import {Spinner} from "../../components/spinner";
 import api from "../../utils/api";
+import { isLiked } from "../../utils/products";
 
 import s from './styles.module.css';
 
@@ -13,10 +15,18 @@ export const ProductPage = () => {
     const [currentUser, setCurrentUser] = useState(null);
     const [isLoading, setIsLoading] = useState(false)
 
+    function handleProductLike(product) {
+        const like = isLiked(product.likes, currentUser._id)
+        api.changeLikeProductStatus(product._id, like)
+            .then((updateCard) => {
+                setProduct(updateCard)
+            })
+    } 
+    
     useEffect(()=>{
-        setIsLoading(true)
+        setIsLoading(true);
         api.getInfoProduct(ID_PRODUCT)   
-            .then((productData, userData) => {
+            .then(([productData, userData]) => {
                 setCurrentUser(userData); 
                 setProduct(productData); 
             }) 
@@ -29,7 +39,10 @@ export const ProductPage = () => {
     }, [])
     return (
         <>
-            <Product /> 
+            {isLoading 
+                ? <Spinner />
+                : <Product {...product} currentUser={currentUser} onProductLike={handleProductLike}/> 
+            }
         </>
     )
 } 
