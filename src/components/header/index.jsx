@@ -6,7 +6,7 @@ import s from "./styles.module.css";
 export function Header({ children, user, onUpdateUser }) {
 
   const handleClickButtonEdit = () => {
-    onUpdateUser({ name: 'Вася', about: 'Ментор' })
+    onUpdateUser({ name: 'Утемишев Рамиль Рафаилович', about: 'Программист' })
   }
 
   return (
