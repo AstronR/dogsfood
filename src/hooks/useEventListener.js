@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { useIsomorphicLayoutEffect } from './index.js'
 
+
 function useEventListener(
     eventName,
     handler,

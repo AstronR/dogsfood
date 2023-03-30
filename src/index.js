@@ -1,10 +1,16 @@
-/* eslint-disable no-unused-vars */
-import React, { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import { App } from "./components/app";
-import "./styles.css";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './components/App/App';
+import { HashRouter } from 'react-router-dom';//замена для отображения на gh-pages.
 
-const rootElement = document.getElementById("root");
-const root = createRoot(rootElement);
 
-root.render(<StrictMode><App /></StrictMode>);
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+
+	<HashRouter>
+		<App />
+	</HashRouter>
+
+);
+

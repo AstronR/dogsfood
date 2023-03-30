@@ -1,9 +1,7 @@
-import s from "./styles.module.css";
+import React from "react";
+import { CircleLoader } from "react-spinners";
 
-export function Spinner() {
-  return (
-    <>
-    <div className={s.spinner}></div>
-    </>
-  );
+function Spinner () {
+	return <CircleLoader color="#6952d5"/>
 }
+export default Spinner;
